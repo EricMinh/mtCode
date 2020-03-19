@@ -75,7 +75,7 @@ typedef struct point point;
 struct point { double x, y; };
 //------ SQUARE -----------------------------------------------------------------
 typedef struct square square;
-struct square { point ul; size_t side; };
+struct square { point ul; double side; };
 square* square_init(double ulx, double uly, double side); // TODO
 void square_delete(square* sq); // TODO
 void square_move(square* sq, double x, double y); // TODO
@@ -112,10 +112,9 @@ double square_area(square* sq) { return (sq->side * sq->side); }
 double square_perimeter(square* sq) { return (sq->side * 4); }
 
 void square_print(const char* msg, square* sq) {
-	double length = sq->side;
 	printf("%s\n", msg);
 	printf("Location: ( %f, %f )\n", sq->ul.x, sq->ul.y);
-	printf("Side Length: %f\n", length);
+	printf("Side Length: %f\n", sq->side);
 	printf("Area: %f\n", square_area(sq));
 	printf("Perimeter: %f\n\n", square_perimeter(sq));
 
